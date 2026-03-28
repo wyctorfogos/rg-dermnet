@@ -1,11 +1,11 @@
 # RG-DermNet
 
-Repositório focado no pipeline experimental para artigo científico:
+This repository is focused on the experimental pipeline used in the scientific paper:
 
-- treino multimodal em `src/scripts/benchmark`
-- agregação de métricas e testes estatísticos em `src/scripts/aggreation`
+- multimodal training scripts in `src/scripts/benchmark`
+- metric aggregation and statistical analysis in `src/scripts/aggreation`
 
-## 1. Ambiente
+## 1. Environment setup
 
 ```bash
 conda create -n rg-dermnet python=3.10 -y
@@ -13,9 +13,9 @@ conda activate rg-dermnet
 pip install -r requirements.txt
 ```
 
-## 2. Configuração (`conf/.env`)
+## 2. Configuration (`conf/.env`)
 
-O treino lê estas variáveis de `conf/.env`:
+Training scripts read the following variables from `conf/.env`:
 
 - `NUM_EPOCHS`
 - `BATCH_SIZE`
@@ -30,7 +30,7 @@ O treino lê estas variáveis de `conf/.env`:
 - `LLM_MODEL_NAME_SEQUENCE_GENERATOR`
 - `save_to_disk`
 
-Estrutura esperada do dataset:
+Expected dataset structure:
 
 ```text
 <DATASET_FOLDER_PATH>/
@@ -38,9 +38,9 @@ Estrutura esperada do dataset:
 `-- metadata.csv
 ```
 
-## 3. Treino
+## 3. Training
 
-Exemplos de execução:
+Example runs:
 
 ```bash
 python src/scripts/benchmark/train_pad_20.py
@@ -49,32 +49,32 @@ python src/scripts/benchmark/train_isic_2019.py
 python src/scripts/benchmark/train_isic_2020.py
 ```
 
-As métricas por fold são salvas no caminho configurado em `RESULTS_FOLDER_PATH`.
+Metrics per fold are saved under `RESULTS_FOLDER_PATH`.
 
-## 4. Agregação e estatística
+## 4. Aggregation and statistics
 
-Depois dos treinos:
+After training:
 
 ```bash
 python src/scripts/aggreation/average_metric_values.py
 python src/scripts/aggreation/statistical_test.py
 ```
 
-Arquivos principais:
+Main files:
 
 - `src/scripts/aggreation/average_metric_values.py`
 - `src/scripts/aggreation/statistical_test.py`
 - `src/scripts/aggreation/stats.py`
 
-## 5. Escopo mínimo do projeto
+## 5. Minimum project scope
 
-Para reprodução do artigo, o núcleo é:
+For paper reproducibility, the core is:
 
 - `conf/`
 - `requirements.txt`
 - `src/scripts/benchmark/`
 - `src/scripts/aggreation/`
-- `data/` (local, não versionado)
+- `data/` (local, not versioned)
 
 ## Citation (IJCNN 2026)
 
@@ -102,3 +102,9 @@ Computer Vision and Data Science, NHL Stenden University of Applied Sciences, Le
   note      = {Accepted}
 }
 ```
+
+## Questions and support
+
+For further questions about the lab and related projects, please visit:
+
+https://life.inf.ufes.br/
