@@ -1,6 +1,6 @@
 # Python
 __pycache__/
-*.py[cod]
+*.py
 *.so
 
 # Environments and secrets
@@ -26,6 +26,3 @@ src/mlruns/
 
 # Runtime and reports
 *.log
-.pytest_cache/
-.mypy_cache/
-.codex
