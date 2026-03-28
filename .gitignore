@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environments and secrets
+.env
+*.env
+conf/.env
+
+# Data and heavy artifacts
+data/
+mlruns/
+logs/
+src/results/
+src/mlruns/
+
+# Model checkpoints and arrays
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.pickle
+*.pkl
+
+# Runtime and reports
+*.log
+.pytest_cache/
+.mypy_cache/
+.codex
