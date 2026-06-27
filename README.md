@@ -76,13 +76,24 @@ For paper reproducibility, the core is:
 - `src/scripts/aggreation/`
 - `data/` (local, not versioned)
 
+## Implementation note on the RG-ATT fusion module
+
+In the implementation used for the experiments, the selected fusion configuration is:
+
+`att-intramodal+residual+cross-attention-metadados`
+
+This configuration first projects image features and clinical metadata into a shared latent space. Then, each modality is independently refined through an intramodal residual-gated attention block. After this step, bidirectional cross-attention is applied: the visual branch attends to the refined metadata representation, and the metadata branch attends to the refined visual representation. The two resulting representations are then concatenated and passed to the final classification head.
+
+Therefore, in the released code, the residual-gated block acts as an intramodal refinement stage before multimodal fusion, while the cross-modal interaction itself is performed by the subsequent bidirectional cross-attention layers.
+
+
 ## Citation (IJCNN 2026)
 
 If you use this project, please cite:
 
 Rocha, W. F., Bouzon, P. H. G., Ramos, L. A., Pacheco, A. G. C., and Souza Jr., L. A.  
 **RG-DermNet: A Multimodal Attention-Based Model with Residual Block Usage for Skin Lesion Classification.**  
-Accepted at the International Joint Conference on Neural Networks (IJCNN), 2026.
+Submitted for publication at the International Joint Conference on Neural Networks (IJCNN), 2026.
 
 ### Authors and affiliations
 
